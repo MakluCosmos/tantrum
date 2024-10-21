@@ -84,8 +84,8 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
   );
 }
 
-function createData(name: string, calories: number, fat: number) {
-  return { name, calories, fat };
+function createData(name: string, memory: number, anything: number) {
+  return { name, memory: memory, anything };
 }
 
 const rows = [
@@ -93,7 +93,7 @@ const rows = [
   createData('Image', 452, 25.0),
   createData('Storage', 262, 16.0),
   createData('VPC Network', 159, 6.0),
-].sort((a, b) => (a.calories < b.calories ? -1 : 1));
+].sort((a, b) => (a.memory < b.memory ? -1 : 1));
 
 export default function CustomPaginationActionsTable() {
   const [page, setPage] = React.useState(0);
@@ -124,9 +124,9 @@ export default function CustomPaginationActionsTable() {
       <Table sx={{ minWidth: 500 }} size='small' aria-label="custom pagination table">
       <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Memory</TableCell>
+            <TableCell align="right">Anything</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -139,10 +139,10 @@ export default function CustomPaginationActionsTable() {
                 {row.name}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.calories}
+                {row.memory}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.fat}
+                {row.anything}
               </TableCell>
             </TableRow>
           ))}
